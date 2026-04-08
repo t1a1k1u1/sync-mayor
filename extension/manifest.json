@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "sync-mayor",
+  "version": "1.0.0",
+  "description": "Amazon Prime Video を複数人で同期視聴する拡張機能",
+  "permissions": [
+    "tabs",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "https://www.amazon.co.jp/gp/video/*",
+    "https://www.amazon.com/gp/video/*",
+    "https://www.primevideo.com/*"
+  ],
+  "background": {
+    "service_worker": "dist/background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.amazon.co.jp/gp/video/detail/*",
+        "https://www.amazon.com/gp/video/detail/*",
+        "https://www.primevideo.com/detail/*"
+      ],
+      "js": ["dist/content/prime-video.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
