@@ -1,7 +1,7 @@
 // ============================================================
 // Workers URL（デプロイ後に更新する）
 // ============================================================
-export const WORKERS_URL = 'https://sync-mayor.YOUR_SUBDOMAIN.workers.dev';
+export const WORKERS_URL = 'https://sync-mayor.koishi-t81.workers.dev';
 
 // ============================================================
 // Extension 内部メッセージ: Content Script → Background
