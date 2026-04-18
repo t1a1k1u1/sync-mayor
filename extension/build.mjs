@@ -35,10 +35,29 @@ const entries = [
 ];
 
 async function copyStaticFiles() {
-  // CSS をコピー
   await mkdir('dist/popup', { recursive: true });
+  await mkdir('dist/offscreen', { recursive: true });
+  await mkdir('dist/icons', { recursive: true });
+
+  // manifest.json をコピー
+  await cp('manifest.json', 'dist/manifest.json');
+
+  // HTML をコピー
+  if (existsSync('src/popup/popup.html')) {
+    await cp('src/popup/popup.html', 'dist/popup/popup.html');
+  }
+  if (existsSync('src/offscreen/offscreen.html')) {
+    await cp('src/offscreen/offscreen.html', 'dist/offscreen/offscreen.html');
+  }
+
+  // CSS をコピー
   if (existsSync('src/popup/popup.css')) {
     await cp('src/popup/popup.css', 'dist/popup/popup.css');
+  }
+
+  // アイコンをコピー
+  if (existsSync('icons')) {
+    await cp('icons', 'dist/icons', { recursive: true });
   }
 }
 
