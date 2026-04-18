@@ -5,19 +5,11 @@
 }
 
 body {
-  width: 220px;
+  width: 260px;
   font-family: system-ui, sans-serif;
   background: #0f0f0f;
   color: #e8e8e8;
   padding: 16px;
-}
-
-.title {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  margin-bottom: 16px;
-  color: #fff;
 }
 
 .message {
@@ -59,6 +51,12 @@ body {
   font-size: 12px;
   color: #4caf50;
   text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.feedback.visible {
+  opacity: 1;
 }
 
 .hidden {

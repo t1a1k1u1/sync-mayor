@@ -37,8 +37,8 @@ function updateUI(status: BackgroundToPopup, shareUrl: string | null): void {
   copyBtn.onclick = async () => {
     if (url) {
       await navigator.clipboard.writeText(url);
-      copyFeedback.classList.remove('hidden');
-      setTimeout(() => copyFeedback.classList.add('hidden'), 2000);
+      copyFeedback.classList.add('visible');
+      setTimeout(() => copyFeedback.classList.remove('visible'), 2000);
     }
   };
 }
